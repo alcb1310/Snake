@@ -6,16 +6,14 @@ screen.bgcolor("black")
 screen.title("My Snake Game")
 
 snakes = []
-x_position = 0
-width = 5
-for _ in range(3):
+starting_positions = [(0, 0), (-20, 0), (-40, 0)]
+for position in starting_positions:
     snake = Turtle("square")
-    snake.resizemode("user")
-    snake.shapesize(stretch_wid=0.5, stretch_len=1)
+    # snake.resizemode("user")
+    # snake.shapesize(stretch_wid=0.5, stretch_len=1)
     snake.color("white")
     snake.penup()
-    snake.goto(x=x_position, y=0)
-    x_position -= 20
+    snake.goto(position)
     snakes.append(snake)
 
 
