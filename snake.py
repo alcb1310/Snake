@@ -1,14 +1,16 @@
 from turtle import Turtle
 
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+
 
 class Snake:
     def __init__(self):
         self.snake_segments = []
-        starting_positions = [(0, 0), (-20, 0), (-40, 0)]
-        for position in starting_positions:
+        self.create_snake()
+
+    def create_snake(self):
+        for position in STARTING_POSITIONS:
             snake = Turtle("square")
-            # snake.resizemode("user")
-            # snake.shapesize(stretch_wid=0.5, stretch_len=1)
             snake.color("white")
             snake.penup()
             snake.goto(position)
