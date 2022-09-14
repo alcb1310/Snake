@@ -1,4 +1,4 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 from snake import Snake
 from food import Food
 from scoreboard import ScoreBoard
@@ -32,5 +32,10 @@ while game_is_on:
         food.refresh()
         score.increase_score()
 
+    # Detect collision with wall
+    if snake.head.xcor() >= 290 or snake.head.xcor() <= -290 or snake.head.ycor() <= -290 or snake.head.ycor() >= 270:
+        game_is_on = False
+
+score.end_game()
 
 screen.exitonclick()
