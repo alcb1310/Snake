@@ -7,16 +7,23 @@ MOVE_DISTANCE = 20
 class Snake:
     def __init__(self):
         self.snake_segments = []
+        self.tail = None
         self.create_snake()
         self.head = self.snake_segments[0]
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            snake = Turtle("square")
-            snake.color("white")
-            snake.penup()
-            snake.goto(position)
-            self.snake_segments.append(snake)
+            self.grow(position)
+
+    def grow(self, position):
+        snake = Turtle("square")
+        snake.color("white")
+        snake.penup()
+        snake.goto(position)
+        self.snake_segments.append(snake)
+
+    def extend(self):
+        self.grow(self.snake_segments[-1].position())
 
     def move(self):
         for seg_num in range(len(self.snake_segments) - 1, 0, -1):
