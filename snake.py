@@ -21,7 +21,9 @@ class Snake:
         snake.penup()
         snake.goto(position)
         self.snake_segments.append(snake)
-        self.tail = self.snake_segments[len(self.snake_segments) - 1]
+
+    def extend(self):
+        self.grow(self.snake_segments[-1].position())
 
     def move(self):
         for seg_num in range(len(self.snake_segments) - 1, 0, -1):
